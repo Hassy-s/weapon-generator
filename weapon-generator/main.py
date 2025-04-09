@@ -19,7 +19,7 @@ if 'pt_members' not in st.session_state:
     initialize_state()
 
 # ページ設定
-st.set_page_config(page_title="希望武器マクロ生成ツール", layout="wide")
+st.set_page_config(page_title="希望武器生成ツール", layout="wide")
 st.title("⚔️ 希望武器マクロ生成ツール⚔️")
 
 # リセットボタン（ページ最上部に配置）
