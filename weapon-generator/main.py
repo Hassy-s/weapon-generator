@@ -67,6 +67,11 @@ output = "\n".join(
     if pt != "未選択" and wish != "未選択"
 )
 
+# 追加テキストを結合（<wait.1> を追加）
+if output:  # 希望武器が1つ以上ある場合のみ追加
+    output += "\n/p 希望武器に間違いなければRC◯下さい！<wait.3>\n/readycheck"
+
+
 if output:
     st.code(output)
     
