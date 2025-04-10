@@ -40,19 +40,9 @@ st.markdown(
     /* 警告エリア */
     .warning-area {
         border-left: 2px solid #ff4b4b;
-        padding: 15px;
+        padding-left: 15px;
         margin-left: 15px;
         min-width: 300px;
-        background-color: var(--background-color);
-        border-radius: 8px;
-    }
-    
-    /* コードブロック */
-    .stCodeBlock {
-        background-color: var(--background-color) !important;
-        border-radius: 8px;
-        padding: 10px;
-        margin-bottom: 10px;
     }
     
     /* カラム調整 */
@@ -67,32 +57,18 @@ st.markdown(
     
     /* カスタムボタン */
     .copy-btn {
-        background-color: #1f77b4 !important;
-        border: none !important;
-        color: white !important;
-        padding: 0.5rem 1rem !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        font-size: 14px !important;
-        margin: 4px 0 !important;
-        cursor: pointer !important;
-        border-radius: 0.25rem !important;
-        width: 100% !important;
-        font-family: inherit !important;
-        line-height: 1.5 !important;
-        transition: all 0.2s ease-in-out !important;
-    }
-    
-    .copy-btn:hover {
-        background-color: #1668a7 !important;
-    }
-    
-    /* ボタンコンテナ */
-    .copy-btn-container {
-        background-color: var(--background-color);
-        padding: 0;
-        margin: 0;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        width: 100%;
     }
     </style>
     """,
@@ -219,12 +195,10 @@ with col3:
         # ボタンの作成
         components.html(
             f"""
-            <div class="copy-btn-container">
-                {copy_script}
-                <button id="copyBtn" onclick="copyToClipboard()" class="copy-btn">
-                    📋 クリップボードにコピー
-                </button>
-            </div>
+            {copy_script}
+            <button id="copyBtn" onclick="copyToClipboard()" class="copy-btn">
+                📋 クリップボードにコピー
+            </button>
             """,
             height=50
         )
@@ -232,3 +206,7 @@ with col3:
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('</div></div>', unsafe_allow_html=True)
+
+# デバッグ用（必要時のみ有効化）
+# with st.expander("デバッグ情報"):
+#     st.json(st.session_state)
