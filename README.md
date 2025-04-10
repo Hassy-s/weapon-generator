@@ -1,4 +1,4 @@
-# weapon-generator 🗡️
+# wishweapon-macro-generator 🗡️
 
 FF14用希望武器マクロ生成ツール
 
