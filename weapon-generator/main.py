@@ -2,7 +2,7 @@ import streamlit as st
 import pyperclip
 
 # ページ設定（必ず最初に記述）
-st.set_page_config(page_title="希望武器マクロ生成ツール", layout="centered")
+st.set_page_config(page_title="武器希望制マクロ生成ツール", layout="centered")
 
 # CSSカスタマイズ（中央寄せ＆コンパクト化）
 st.markdown(
@@ -78,7 +78,7 @@ if 'pt_members' not in st.session_state:
 
 # タイトル（中央寄せ）
 st.markdown('<div class="stTitle">', unsafe_allow_html=True)
-st.title("⚔️ 希望武器マクロ生成ツール⚔️")
+st.title("⚔️ 武器希望制マクロ生成ツール⚔️")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # リセットボタン（中央寄せ）
