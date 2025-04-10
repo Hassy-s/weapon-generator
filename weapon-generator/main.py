@@ -3,17 +3,6 @@ import pyperclip
 
 # ページ設定（必ず最初に記述）
 st.set_page_config(page_title="希望武器マクロ生成ツール", layout="centered")
-# HTMLの<head>内に直接<title>を設定するカスタムコンポーネント
-st.components.v1.html(
-    """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>希望武器マクロ生成ツール</title>
-    </head>
-    </html>
-    """
-)
 
 # CSSカスタマイズ（中央寄せ＆コンパクト化）
 st.markdown(
