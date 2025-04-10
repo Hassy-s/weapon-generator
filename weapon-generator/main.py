@@ -2,7 +2,7 @@ import streamlit as st
 import pyperclip
 
 # ページ設定（必ず最初に記述）
-st.set_page_config(page_title="希望武器生成ツール", layout="centered")
+st.set_page_config(page_title="希望武器マクロ生成ツール", layout="centered")
 
 # CSSカスタマイズ（中央寄せ＆コンパクト化）
 st.markdown(
