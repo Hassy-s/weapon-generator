@@ -1,5 +1,5 @@
 import streamlit as st
-import pyperclip
+import streamlit.components.v1 as components
 
 # ページ設定（必ず最初に記述）
 st.set_page_config(page_title="武器希望制マクロ生成ツール", layout="centered")
@@ -53,6 +53,22 @@ st.markdown(
     /* タイトル中央寄せ */
     .stTitle {
         text-align: center !important;
+    }
+    
+    /* カスタムボタン */
+    .copy-btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        width: 100%;
     }
     </style>
     """,
@@ -156,12 +172,36 @@ with col3:
         output += "\n/p 希望武器に間違いなければRC◯下さい<wait.3>\n/readycheck"
         st.code(output)
         
-        if st.button("📋 クリップボードにコピー"):
-            try:
-                pyperclip.copy(output)
-                st.success("コピー完了！")
-            except Exception as e:
-                st.error(f"エラー: {e}\n手動でコピーしてください")
+        # クリップボードコピー用のJavaScript
+        copy_script = f"""
+        <script>
+        function copyToClipboard() {{
+            const text = `{output}`;
+            navigator.clipboard.writeText(text)
+                .then(() => {{
+                    const copyBtn = document.getElementById('copyBtn');
+                    copyBtn.textContent = '✅ コピー完了！';
+                    setTimeout(() => {{
+                        copyBtn.textContent = '📋 クリップボードにコピー';
+                    }}, 2000);
+                }})
+                .catch(err => {{
+                    alert('クリップボードへのコピーに失敗しました: ' + err);
+                }});
+        }}
+        </script>
+        """
+        
+        # ボタンの作成
+        components.html(
+            f"""
+            {copy_script}
+            <button id="copyBtn" onclick="copyToClipboard()" class="copy-btn">
+                📋 クリップボードにコピー
+            </button>
+            """,
+            height=50
+        )
     
     st.markdown('</div>', unsafe_allow_html=True)
 
