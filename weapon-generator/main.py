@@ -160,7 +160,6 @@ with col3:
             try:
                 pyperclip.copy(output)
                 st.success("コピー完了！")
-                st.balloons()
             except Exception as e:
                 st.error(f"エラー: {e}\n手動でコピーしてください")
     
